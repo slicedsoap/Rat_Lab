@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6jl84n1k7qso"]
+
+[ext_resource type="Script" path="res://scenes/movable_object.gd" id="1_1l1y4"]
+[ext_resource type="Texture2D" uid="uid://dvniajucymi7d" path="res://art/flat-design-couple-arguing-silhouette.png" id="1_81upx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_was77"]
+size = Vector2(60, 55)
+
+[node name="RigidBody2D" type="RigidBody2D"]
+script = ExtResource("1_1l1y4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(6.00001, 2)
+scale = Vector2(0.0445, 0.0445)
+texture = ExtResource("1_81upx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 13)
+shape = SubResource("RectangleShape2D_was77")

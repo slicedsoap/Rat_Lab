@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://bd0heykot3seg"]
+
+[ext_resource type="Texture2D" uid="uid://e8uj65u8q5lj" path="res://art/hammock.png" id="1_mhq10"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdqim"]
+atlas = ExtResource("1_mhq10")
+region = Rect2(0, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvlm8"]
+atlas = ExtResource("1_mhq10")
+region = Rect2(1280, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0kqy2"]
+atlas = ExtResource("1_mhq10")
+region = Rect2(2560, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjwmc"]
+atlas = ExtResource("1_mhq10")
+region = Rect2(3840, 0, 1280, 720)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fcfs8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdqim")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvlm8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0kqy2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjwmc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AnimatableBody2D" type="AnimatableBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fcfs8")
+frame = 3
+frame_progress = 0.735659
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-413, -113, -262, 17, -78, 116, 119, 64, 392, -96, 89, 41, -75, 67, -235, -1)

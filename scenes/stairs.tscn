@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://bttronov5r8e3"]
+
+[ext_resource type="PackedScene" uid="uid://cjauy4nhvyouk" path="res://scenes/platform.tscn" id="1_yw4lo"]
+
+[node name="Stairs" type="AnimatableBody2D"]
+
+[node name="Platform" parent="." instance=ExtResource("1_yw4lo")]
+position = Vector2(-73, 48)
+
+[node name="Platform2" parent="." instance=ExtResource("1_yw4lo")]
+position = Vector2(-28, 17)
+
+[node name="Platform3" parent="." instance=ExtResource("1_yw4lo")]
+position = Vector2(23, -14)
+
+[node name="Platform4" parent="." instance=ExtResource("1_yw4lo")]
+position = Vector2(72, -44)
+
+[node name="Platform5" parent="." instance=ExtResource("1_yw4lo")]
+position = Vector2(125, -74)

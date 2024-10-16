@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3mio3mxir31r"]
+
+[ext_resource type="Texture2D" uid="uid://dcgbsrrmfb41b" path="res://art/background/background_art.png" id="1_goalm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1nbiu"]
+font_size = 37
+
+[node name="Level 2" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(572, 319)
+texture = ExtResource("1_goalm")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+z_index = 6
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = -44.0
+offset_right = 100.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+text = "The End :P"
+label_settings = SubResource("LabelSettings_1nbiu")
+horizontal_alignment = 1
+vertical_alignment = 1

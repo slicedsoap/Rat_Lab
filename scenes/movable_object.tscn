@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6jl84n1k7qso"]
+
+[ext_resource type="Texture2D" uid="uid://dcqsr2g2thwf" path="res://art/objects/ratbox_red.png" id="1_bbd5r"]
+
+[sub_resource type="GDScript" id="GDScript_0gx77"]
+script/source = "extends RigidBody2D
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_was77"]
+size = Vector2(112, 114)
+
+[node name="MovableObject" type="RigidBody2D"]
+script = SubResource("GDScript_0gx77")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-3.81271, 0.276159)
+scale = Vector2(0.50235, 0.616679)
+texture = ExtResource("1_bbd5r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_was77")
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

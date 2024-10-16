@@ -1,0 +1,151 @@
+[gd_scene load_steps=13 format=3 uid="uid://bljjpmqrlmul4"]
+
+[ext_resource type="Texture2D" uid="uid://dcgbsrrmfb41b" path="res://art/background/background_art.png" id="1_15l7m"]
+[ext_resource type="PackedScene" uid="uid://cwctmhvt82f8s" path="res://scenes/cage_tilemap.tscn" id="4_phmtm"]
+[ext_resource type="Texture2D" uid="uid://dxovfch3cmqge" path="res://art/background/scientist_pupils.png" id="5_k051o"]
+[ext_resource type="PackedScene" uid="uid://cjauy4nhvyouk" path="res://scenes/platform.tscn" id="6_6dvho"]
+[ext_resource type="Texture2D" uid="uid://c75o7syp6o6fh" path="res://art/opaque_glass.png" id="6_6l3yc"]
+[ext_resource type="Texture2D" uid="uid://cxiwmq25mim6f" path="res://art/background/scientist_no_eyes.png" id="6_llh3r"]
+[ext_resource type="PackedScene" uid="uid://bd0heykot3seg" path="res://scenes/hammock.tscn" id="8_7o51m"]
+[ext_resource type="PackedScene" uid="uid://b6jl84n1k7qso" path="res://scenes/movable_object.tscn" id="9_m0h38"]
+[ext_resource type="PackedScene" uid="uid://cpy5iu0hvdq11" path="res://scenes/cheese.tscn" id="9_qhwp5"]
+[ext_resource type="PackedScene" uid="uid://ds2ranwmlyfo0" path="res://scenes/rat.tscn" id="10_qctqb"]
+[ext_resource type="Script" path="res://scripts/pupils.gd" id="11_yak1q"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_axtl1"]
+
+[node name="Level 1" type="Node2D"]
+
+[node name="rat" parent="." instance=ExtResource("10_qctqb")]
+z_index = 2
+position = Vector2(297, 376)
+scale = Vector2(5, 5)
+
+[node name="Camera2D" type="Camera2D" parent="rat"]
+position = Vector2(2.59999, -18.4)
+position_smoothing_enabled = true
+
+[node name="Scene" type="Area2D" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Scene"]
+
+[node name="LabBackground" type="ParallaxLayer" parent="Scene/ParallaxBackground"]
+position = Vector2(276, 39)
+motion_scale = Vector2(0.5, 0.5)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene/ParallaxBackground/LabBackground"]
+position = Vector2(760, -212)
+scale = Vector2(2.27463, 2.27463)
+texture = ExtResource("1_15l7m")
+
+[node name="Scientist" type="ParallaxLayer" parent="Scene/ParallaxBackground"]
+position = Vector2(146, -214)
+scale = Vector2(0.829054, 0.829054)
+motion_scale = Vector2(0.8, 0.8)
+metadata/_edit_group_ = true
+
+[node name="Pupils" type="CharacterBody2D" parent="Scene/ParallaxBackground/Scientist"]
+script = ExtResource("11_yak1q")
+
+[node name="ScientistPupils" type="Sprite2D" parent="Scene/ParallaxBackground/Scientist/Pupils"]
+position = Vector2(1132, -166)
+scale = Vector2(1.974, 1.974)
+texture = ExtResource("5_k051o")
+
+[node name="ScientistNoEyes" type="Sprite2D" parent="Scene/ParallaxBackground/Scientist"]
+position = Vector2(1133, -185)
+scale = Vector2(2.09933, 2.09933)
+texture = ExtResource("6_llh3r")
+
+[node name="GlassPane" type="ParallaxLayer" parent="Scene/ParallaxBackground"]
+position = Vector2(369, 30)
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene/ParallaxBackground/GlassPane"]
+position = Vector2(675, -420)
+scale = Vector2(1.92842, 1.98649)
+texture = ExtResource("6_6l3yc")
+
+[node name="tilemap" parent="Scene" instance=ExtResource("4_phmtm")]
+
+[node name="Right wall" type="StaticBody2D" parent="Scene"]
+position = Vector2(530, -34)
+scale = Vector2(1.5, 1.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Right wall"]
+position = Vector2(1040, 74)
+rotation = -1.5708
+scale = Vector2(1.5, 1.5)
+shape = SubResource("WorldBoundaryShape2D_axtl1")
+
+[node name="Left wall" type="StaticBody2D" parent="Scene"]
+scale = Vector2(1.5, 1.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Left wall"]
+position = Vector2(1, 117)
+rotation = 1.5708
+scale = Vector2(1.5, 1.5)
+shape = SubResource("WorldBoundaryShape2D_axtl1")
+
+[node name="Hammock" parent="Scene" instance=ExtResource("8_7o51m")]
+z_index = 7
+position = Vector2(824, -980)
+rotation = 0.113446
+scale = Vector2(0.558697, 0.558697)
+
+[node name="Ramp" parent="Scene" instance=ExtResource("6_6dvho")]
+position = Vector2(1476, 87)
+rotation = -0.663225
+scale = Vector2(9.338, 5)
+
+[node name="Ramp2" parent="Scene" instance=ExtResource("6_6dvho")]
+position = Vector2(1482, -258)
+rotation = 0.523599
+scale = Vector2(10, 5.354)
+
+[node name="MoveableBox" parent="." instance=ExtResource("9_m0h38")]
+unique_name_in_owner = true
+position = Vector2(609, -485)
+
+[node name="MoveableBox4" parent="." instance=ExtResource("9_m0h38")]
+unique_name_in_owner = true
+position = Vector2(1215, -715)
+freeze_mode = 1
+
+[node name="MoveableBox2" parent="." instance=ExtResource("9_m0h38")]
+unique_name_in_owner = true
+modulate = Color(0.984314, 1, 0, 1)
+position = Vector2(1538, -792)
+freeze_mode = 1
+
+[node name="MoveableBox3" parent="." instance=ExtResource("9_m0h38")]
+unique_name_in_owner = true
+position = Vector2(1956, -800)
+freeze_mode = 1
+
+[node name="Cheese" parent="." instance=ExtResource("9_qhwp5")]
+position = Vector2(-1315, -307)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 7.0
+offset_top = -1.0
+offset_right = 764.0
+offset_bottom = 393.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1062.0
+offset_top = 31.0
+offset_right = 1123.0
+offset_bottom = 62.0
+focus_mode = 0
+toggle_mode = true
+text = "restart"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="toggled" from="CanvasLayer/Control/Button" to="rat" method="_on_button_toggled"]

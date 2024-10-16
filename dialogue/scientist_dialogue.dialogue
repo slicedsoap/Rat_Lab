@@ -1,0 +1,21 @@
+~ start
+
+???: Well hello there, little guy.
+???: Having trouble? Try using WASD to move.
+do switch_level()
+
+=> END
+
+~ jump
+
+???: You can press Space to jump, as well. Try it.
+???: Good job...
+=> END
+
+
+~ push
+
+???: You're going to need some help getting up there...
+???: Trying pressing shift while pushing a box.
+
+=> END

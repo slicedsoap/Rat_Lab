@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjauy4nhvyouk"]
+
+[ext_resource type="Texture2D" uid="uid://b6ogwpfih544b" path="res://art/objects/rat ramp.png" id="1_h8j0t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hkxqh"]
+size = Vector2(64, 5)
+
+[node name="Platform" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.5, 2.05186)
+rotation = 0.0174533
+scale = Vector2(0.0363158, 0.0720297)
+texture = ExtResource("1_h8j0t")
+region_rect = Rect2(15.6128, 158.682, 64.0134, 7.11261)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_hkxqh")
+one_way_collision = true

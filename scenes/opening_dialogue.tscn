@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://chdbbqp8o5ai0"]
+
+[ext_resource type="Script" path="res://scripts/opening_dialogue.gd" id="1_bw6j7"]
+[ext_resource type="Texture2D" uid="uid://onxhp48ufbog" path="res://art/background/black_background.png" id="2_a1urk"]
+
+[node name="OpeningDialogue" type="Node2D"]
+script = ExtResource("1_bw6j7")
+
+[node name="Darkness" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Darkness"]
+position = Vector2(581, 330)
+scale = Vector2(1.11294, 1.0943)
+texture = ExtResource("2_a1urk")
+
+[node name="DialogueTimer" type="Timer" parent="."]
+wait_time = 2.0
